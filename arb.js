@@ -96,5 +96,7 @@ const jsons = [];
     console.log('================')
     console.log('==== REPORT ====')
     console.log('================')
-    console.log(diffOrdered);
+    for (let d of diffOrdered) {
+        console.log(d);
+    }
 })().catch(console.error);
