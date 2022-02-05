@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const getDataCsv = callback => {
-    fs.readFile('ah-data.csv', {encoding: 'utf-8'}, (err, data) => {
+    fs.readFile('ah-data.csv', {encoding: 'utf8'}, (err, data) => {
         if (!err) {
             callback(data);
         } else {
@@ -39,7 +39,7 @@ const saveDataFile = json => {
     const unixTime = new Date().getTime().toString();
     const filename = `${unixTime}.json`;
     const path = `data/${filename}`;
-    fs.writeFile(path, json, err => {
+    fs.writeFile(path, json, 'utf8', err => {
         if(err) {
             return console.error(err);
         }
