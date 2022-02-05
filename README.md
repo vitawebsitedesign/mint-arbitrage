@@ -1,7 +1,7 @@
 ### What
 This Node repo integrates with the CSV data, exported from the Lua WoW classic addon ["Auctioneer"](https://www.curseforge.com/wow/addons/auctionator).
 
-By allowing you to store snapshots of WoW auction house data, it enables comparison between aggregated snapshots to calcuate price arbitrage opportunities on the auction house. You would ideally use a mean-reversion strategy for max PnL.
+By allowing you to store snapshots of WoW auction house data, it enables comparison between aggregated snapshots to calculate price arbitrage opportunities on the auction house. You would ideally use a mean-reversion strategy for max PnL.
 
 Note: these js scripts require Node >= v16.13.2
 
