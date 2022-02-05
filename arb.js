@@ -6,6 +6,7 @@ const statp = promisify(fs.stat);
 
 async function getDataFilePaths(directoryName = './data', results = []) {
     let files = await readdirp(directoryName);
+    files = files.filter(filename => !(/(^|\/)\.[^\/\.]/g).test(filename)); // Ignore hidden files like .DS_Store
     files.pop();    // Ignore todays data file - we use that to compare against the averages
 
     for (let f of files) {
@@ -29,7 +30,7 @@ async function getDataFilePathLatest(directoryName = './data', results = []) {
 async function getJsons(paths) {
     const jsons = [];
     for (let path of paths) {
-        const json = await fs.promises.readFile(path, 'utf-8');
+        const json = await fs.promises.readFile(path, 'utf8');
         jsons.push(json);
     }
     return jsons;
@@ -82,6 +83,9 @@ const jsons = [];
 (async () => {
     const paths = await getDataFilePaths();
     const jsons = await getJsons(paths);
+
+    console.log(jsons);
+
     const history = getPriceHistory(jsons);
     const averages = getPriceAverages(history);
 
