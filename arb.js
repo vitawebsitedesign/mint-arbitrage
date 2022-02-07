@@ -78,14 +78,29 @@ const getPriceAverageDiff = (historicalAverages, latestAverages) => {
     return diffs;
 };
 
-const jsons = [];
+const savePriceHistory = (history, latestHistory) => {
+    const combinedHistory = JSON.parse(JSON.stringify(history));
+    for (let [name, price] of Object.entries(latestHistory)) {
+        if (name in combinedHistory) {
+            combinedHistory[name].push(price[0]);
+        } else {
+            combinedHistory[name] = [price];
+        }
+    }
+
+    const json = JSON.stringify(combinedHistory);
+    const filename = `combined-price-history.json`;
+    fs.writeFile(filename, json, 'utf8', err => {
+        if(err) {
+            return console.error(err);
+        }
+        console.log("The file was saved!");
+    });     
+};
 
 (async () => {
     const paths = await getDataFilePaths();
     const jsons = await getJsons(paths);
-
-    console.log(jsons);
-
     const history = getPriceHistory(jsons);
     const averages = getPriceAverages(history);
 
@@ -97,6 +112,7 @@ const jsons = [];
     const diff = getPriceAverageDiff(averages, latestAverages);
     const diffOrdered = diff.sort((a, b) => b.diff - a.diff);
 
+    savePriceHistory(history, latestHistory);
     console.log('================')
     console.log('==== REPORT ====')
     console.log('================')
