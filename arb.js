@@ -88,9 +88,29 @@ const savePriceHistory = (history, latestHistory) => {
         }
     }
 
-    const json = JSON.stringify(combinedHistory);
+    const arr = [];
+    for (let [name, prices] of Object.entries(combinedHistory)) {
+        const recentPriceDiff = prices.length > 2
+            ? Math.abs(prices[prices.length - 1] - prices[prices.length - 2])
+            : 0;
+
+        arr.push({
+            name,
+            prices,
+            recentPriceDiff
+        });
+    }
+
+    const arrSorted = arr.sort((a, b) => b.recentPriceDiff - a.recentPriceDiff)
+    const arrChartData = {};
+    for (let itemMetadata of arrSorted) {
+        const chartTitle = `${itemMetadata.name} (${itemMetadata.recentPriceDiff}g)`;
+        arrChartData[chartTitle] = itemMetadata.prices;
+    }
+
+    const arrChartDataJson = JSON.stringify(arrChartData);
     const filename = `combined-price-history.json`;
-    fs.writeFile(filename, json, 'utf8', err => {
+    fs.writeFile(filename, arrChartDataJson, 'utf8', err => {
         if(err) {
             return console.error(err);
         }
