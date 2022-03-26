@@ -55,9 +55,9 @@ The more snapshots you have, the more reliable the calculated arbitrage data wil
 Whilst auctioneer advanced & TSM are great addons, the AH averages they display are [SMA](https://www.investopedia.com/terms/s/sma.asp). From my perspective, there are problems with using an overly-simplistic formula:
 
 #### Market edge
-- Their averages provide 1 SMA to all users. Due to the overly simplistic formula, this [market edge](https://www.investopedia.com/articles/active-trading/022415/vital-importance-defining-your-trading-edge.asp) edge is asymptotic when too many people use the addon.
+- Their averages provide 1 SMA to all users. Due to the overly simplistic formula, this [market edge](https://www.investopedia.com/articles/active-trading/022415/vital-importance-defining-your-trading-edge.asp) becomes asymptotic when more people use the addon.
 
-> *"The Mint Arbitrage addon provides charting instead of SMA, as well as only covering specific items in order to obtain higher sample rates for specific users. These 2 properties allow it to retain edge when Mint usage is high"*
+> *"The Mint Arbitrage addon provides charting instead of SMA, as well as targeting items specific to each user (in order to maximise samples). These 2 properties allow it to retain edge when Mint usage is high"*
 
 #### Standard deviation
 - Their averages dont distinguish [standard deviations](https://en.wikipedia.org/wiki/Standard_deviation). For instance, if spot price is 3g and average is 4g, however common prices could be 2-6g, with [breakouts](https://www.investopedia.com/articles/trading/08/trading-breakouts.asp#:~:text=A%20breakout%20is%20a%20stock,the%20stock%20breaks%20below%20support.) only occurring outside those levels.
