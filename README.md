@@ -48,9 +48,9 @@ These results are ordered descending. Items at the top of the list represents op
 The more snapshots you have, the more reliable the calculated arbitrage data will be.
 
 ### Versus other interop addons
-[![Auctioneer Advanced providing AH averages](https://i.imgur.com/3J0B4NU.png "Auctioneer Advanced providing AH averages")](https://i.imgur.com/3J0B4NU.png)
-
-[![TSM providing AH averages](https://i.imgur.com/SejhewW.png "Auctioneer Advanced providing AH averages")](https://i.imgur.com/SejhewW.png)
+| Auc Advanced      | TSM |
+| ----------- | ----------- |
+| [![Auctioneer Advanced providing AH averages](https://i.imgur.com/3J0B4NU.png "Auctioneer Advanced providing AH averages")](https://i.imgur.com/3J0B4NU.png)      | [![TSM providing AH averages](https://i.imgur.com/SejhewW.png "Auctioneer Advanced providing AH averages")](https://i.imgur.com/SejhewW.png)       |
 
 Whilst auctioneer advanced & TSM are great addons, the AH averages they display are [SMA](https://www.investopedia.com/terms/s/sma.asp). From my perspective, there are problems with using an overly-simplistic formula:
 
